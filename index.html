@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" id="mDesc" content="طقم الصلاة — قطن خفيف بطبعة أنيقة، مقاس واحد يناسب الجميع. الدفع عند الاستلام والشحن متوفر لكل ولايات الوطن.">
-<meta property="og:title" content="طقم الصلاة | TOUCHE ELEGANCE">
+<meta property="og:title" content="طقم الصلاة | ANAKATI">
 <meta property="og:description" content="قطن خفيف · 4 تصاميم أنيقة · الدفع عند الاستلام · الشحن متوفر لكل ولايات الوطن">
 <meta property="og:image" content="images/design-blue.jpg">
 <meta name="theme-color" content="#2E4A40">
-<title>طقم الصلاة | TOUCHE ELEGANCE</title>
+<title>طقم الصلاة | ANAKATI</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -412,7 +412,7 @@ button{cursor:pointer;background:none;border:none}
   <div class="container hd-in">
     <a class="brand" href="#top">
       <span>
-        <b id="brandName">TOUCHE ELEGANCE</b>
+        <b id="brandName">ANAKATI</b>
         <i id="brandTag">PRAYER WEAR</i>
       </span>
     </a>
@@ -655,7 +655,7 @@ button{cursor:pointer;background:none;border:none}
 <footer class="ft">
   <div class="container ft-in">
     <div>
-      <b class="fm" id="ftBrand">TOUCHE ELEGANCE</b>
+      <b class="fm" id="ftBrand">ANAKATI</b>
       <p id="ftText">ملابس صلاة نسائية بجودة عالية وأسعار في المتناول — نوصل لكل ولايات الوطن مع الدفع عند الاستلام.</p>
       <div class="soc" id="ftSoc"></div>
     </div>
@@ -676,7 +676,7 @@ button{cursor:pointer;background:none;border:none}
     </div>
   </div>
   <div class="ft-bot container">
-    <span id="ftCopy">© 2026 TOUCHE ELEGANCE — كل الحقوق محفوظة</span>
+    <span id="ftCopy">© 2026 ANAKATI — كل الحقوق محفوظة</span>
   </div>
 </footer>
 
@@ -716,7 +716,9 @@ button{cursor:pointer;background:none;border:none}
     <button id="panelX" aria-label="إغلاق">✕</button>
   </div>
   <div class="panel-b">
-    <div class="pf"><label>السعر الحالي (دج)</label><input type="number" id="cPrice" min="0" step="100"></div>
+    <div class="pf"><label>اسم المتجر (يظهر في الهيدر والفوتر)</label><input type="text" id="cBrand"></div>
+    <div class="pf"><label>الوصف تحت الاسم (Tagline)</label><input type="text" id="cTag"></div>
+<div class="pf"><label>السعر الحالي (دج)</label><input type="number" id="cPrice" min="0" step="100"></div>
     <div class="pf"><label>السعر قبل الخصم (دج) — اجعله 0 لإخفاء الخصم</label><input type="number" id="cOld" min="0" step="100"></div>
     <div class="pf"><label>عنوان الصفحة (الهيرو)</label><input type="text" id="cTitle"></div>
     <div class="pf"><label>النص التعريفي تحت العنوان</label><textarea id="cSub" rows="3"></textarea></div>
@@ -768,7 +770,7 @@ button{cursor:pointer;background:none;border:none}
      ========================================================= -->
 <script id="cfg" type="application/json">
 {
-  "brand": "TOUCHE ELEGANCE",
+  "brand": "ANAKATI",
   "brandTag": "PRAYER WEAR",
   "title": "طقم الصلاة <em>بطبعةٍ أنيقة</em>",
   "sub": "قماش قطن خفيف ينساب مع الجسم، طبعة ثابتة لا تبهت، ومقاسٌ واحد يناسب جميع المقاسات — بأربع تصاميم راقية تختارينها أنتِ.",
@@ -1299,6 +1301,8 @@ $('#addDesign').onclick = () => {
 };
 
 function fillPanel(){
+  $('#cBrand').value = CFG.brand;
+  $('#cTag').value = CFG.brandTag || '';
   $('#cPrice').value = CFG.price;
   $('#cOld').value = CFG.oldPrice;
   $('#cTitle').value = CFG.title;
@@ -1316,6 +1320,8 @@ function fillPanel(){
 }
 function collectPanel(){
   const g = id => $('#'+id).value;
+  CFG.brand = g('cBrand').trim() || 'ANAKATI';
+  CFG.brandTag = g('cTag').trim();
   CFG.price = +g('cPrice') || 0;
   CFG.oldPrice = +g('cOld') || 0;
   CFG.title = g('cTitle');
